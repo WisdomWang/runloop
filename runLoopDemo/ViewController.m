@@ -112,6 +112,22 @@
     
     ⑤.RunLoop有三种启动方式run、runUntilDate:(NSDate *)limitDate、runMode:(NSString *)mode beforeDate:(NSDate *)limitDate。第一种无条件永远运行RunLoop并且无法停止，线程永远存在。第二种会在时间到后退出RunLoop，同样无法主动停止RunLoop。前两种都是在NSDefaultRunLoopMode模式下运行。第三种可以选定运行模式，并且在时间到后或者触发了非Timer的事件后退出。*/
     
+     //几个在某个线程内响应某方法的方法
+    
+        /*performSelectorOnMainThread:withObject:waitUntilDone:
+        performSelectorOnMainThread:withObject:waitUntilDone:modes:
+            在主线程中响应指定Selector。这两个方法给你提供了选项来阻断当前线程(不是执行Selector的线程而是调用上述方法的线程)直到selector被执行完毕。
+         
+        performSelector:onThread:withObject:waitUntilDone:
+        performSelector:onThread:withObject:waitUntilDone:modes:
+            在某个子线程（NSThread对像）中响应指定Selector。这两个方法同样给你提供了选项来阻断当前线程直到Selector被执行完毕。
+         
+        performSelector:withObject:afterDelay:
+        performSelector:withObject:afterDelay:inModes:
+            在当前线程中执行Selector，并附加了延迟选项。多个排队的Selector会按照顺序一个一个的执行。*/
+    
+        //例子见FirstViewController
+    
     
     //在进行Scrollview的滚动操作时Timer不进行响应，滑动结束后timer又恢复正常了。
     
